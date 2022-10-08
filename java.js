@@ -29,7 +29,7 @@ function operate(operator, a ,b){
 
 }
 function updateDisplay() {
-    if(displayValue.includes('.') && this.textContent == '.'){
+    if(displayValue.includes('.') && this.textContent == '.' || displayValue.length > 30){
         return displayValue;
     }
     if(displayValue == '' && this.textContent == '.'){
