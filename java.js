@@ -14,7 +14,7 @@ function multiply(a, b) {
 }
 function divide(a, b) {
     if(b==0){
-        return 'What are you doing?'
+        return 'So Long, and Thanks for All the Fish'
     } 
     return a / b;
 }
@@ -37,8 +37,9 @@ function updateDisplay() {
     }else{
         displayValue = displayValue + this.textContent;
     }
-    reSize();
+    
     display.textContent = displayValue;
+    reSize();
     b=display.textContent;
     
    
