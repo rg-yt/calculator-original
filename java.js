@@ -28,22 +28,42 @@ function operate(operator, a ,b){
     }
 
 }
-const numbers = document.querySelectorAll('.number');
-const display = document.querySelector('p');
-numbers.forEach(number => {
-    number.addEventListener('click', updateDisplay);
-});
 function updateDisplay() {
-    
-    displayValue = displayValue + this.textContent;
+    if(displayValue.includes('.') && this.textContent == '.'){
+        return displayValue;
+    }
+    if(displayValue == '' && this.textContent == '.'){
+        displayValue = '0' + this.textContent;
+    }else{
+        displayValue = displayValue + this.textContent;
+    }
     display.textContent = displayValue;
     b=display.textContent;
     
+   
 }
+function storeValue(){
+    displayValue = '';
+    a = b;
+    if(!total){
+     total = b
+    }
+    b = '';
+} 
+const numbers = document.querySelectorAll('.number');
+const display = document.querySelector('p');
 const operateButtons = document.querySelectorAll('.operator');
+const equalButton = document.querySelector('.equal');
+const decimal = document.querySelector('.decimal');
+const clearButton = document.querySelector('.clear');
+
+numbers.forEach(number => {
+    number.addEventListener('click', updateDisplay);
+});
+decimal.addEventListener('click',updateDisplay);
 operateButtons.forEach(button => {
     button.addEventListener('click', () => {
-        displayValue = '';
+        
         if(b && total){
             total = operate(operator,a,b);
             display.textContent = total;
@@ -68,19 +88,21 @@ operateButtons.forEach(button => {
         }  
     });
 });
-function storeValue(){
-   a = b;
-   if(!total){
-    total = b
-   }
-   b = '';
-   
-}
-const equalButton = document.querySelector('.equal');
+
 equalButton.addEventListener('click', ()=>{
     displayValue = '';
     total = operate(operator,a,b);
     display.textContent = total;
     operator = null;
 });
+
+clearButton.addEventListener('click',()=>{
+    operator = null;
+    display.textContent = '';
+    a = 0;
+    total = 0;
+    displayValue = '';
+    b = 0;
+    
+})
 
