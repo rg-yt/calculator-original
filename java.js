@@ -52,11 +52,11 @@ function storeValue(){
     b = '';
 } 
 function reSize(){
-    if (display.textContent.length > 25){
-        display.style.cssText = `font-size:15px`;
-    }else if(display.textContent.length > 18){
+    if (display.textContent.length > 20){
+        display.style.cssText = `font-size:17px`;
+    }else if(display.textContent.length > 15){
         display.style.cssText = `font-size:20px`;
-    }else if(display.textContent.length > 12){
+    }else if(display.textContent.length > 10){
         display.style.cssText = `font-size:30px`;
     }else{
         display.style.cssText = `font-size:40px`;
