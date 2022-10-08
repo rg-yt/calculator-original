@@ -59,5 +59,7 @@ button:hover{
     height: 50px;
     width: 220px;
 }
-
+a{
+    color: blue;
+}
 
